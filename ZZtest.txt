@@ -1,0 +1,36 @@
+// run thread
+
+#include <iostream>
+#include "../include/MediaPlayer.h"
+
+int main() {
+    MediaPlayer player;
+    std::string command;
+
+    while (true) {
+        std::cout << "Commands: play <path>, stop, pause, resume, volume <0-128>, quit\n";
+        std::getline(std::cin, command);
+
+        if (command == "quit") {
+            break;
+        } else if (command.find("play ") == 0) {
+            std::string path = command.substr(5);
+            player.play(path);
+        } else if (command == "stop") {
+            player.stop();
+        } else if (command == "pause") {
+            player.pause();
+        } else if (command == "resume") {
+            player.resume();
+        } else if (command.find("volume ") == 0) {
+            int vol = std::stoi(command.substr(7));
+            player.setVolume(vol);
+        } else {
+            std::cout << "Unknown command\n";
+        }
+    }
+
+    return 0;
+}
+
+//==========================================================
