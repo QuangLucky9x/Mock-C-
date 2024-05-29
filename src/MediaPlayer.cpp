@@ -1,4 +1,4 @@
-#include "../include/MediaPlayer.h"
+#include "MediaPlayer.h"
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -96,7 +96,7 @@ void MediaPlayer::playAllList(const PlayList& PlayList) {
     for (const MP3& song : songs) {
         std::cout << "Song list: " << song.getName() << " from " << song.getPath() << std::endl;
         // Your code to play the song goes here
-        play(song.getPath()); 
+        play(song.getPath());
     }
 }
 void MediaPlayer::musicThreadFunc(const std::string& path) {
@@ -169,7 +169,7 @@ int MediaPlayer::findMP3FileIndex( std::string& filePath, const std::vector<std:
 void MediaPlayer::next( std::string& filePath, const std::vector<std::string>& filePaths){
     int currentIndex = findMP3FileIndex(filePath,filePaths);
     if (currentIndex <filePaths.size()-1){
-       
+
         filePath = filePaths[currentIndex+1];
          std::cout << currentIndex << " and " << filePath << std::endl;
     }

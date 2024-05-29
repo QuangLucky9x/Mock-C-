@@ -1,5 +1,5 @@
-#include "../include/manager.h"
-#include "../include/filename_utils.h"
+#include "manager.h"
+#include "filename_utils.h"
 #include <iostream>
 #include <vector>
 
@@ -18,7 +18,7 @@ void Manager:: homePage(){
         } else if (command == "1") {
             OpenFolder();
         } else if (command == "2") {
-            
+
 }
         else {
             std::cout<< "ERROR. Please inform again" <<std::endl;
@@ -38,7 +38,7 @@ void Manager::OpenFolder(){
     std::vector MPList =listMP3Files(command);
     bool* check =&state;
     ProcessingFolder(MPList, check);
-    
+
     }
 };
 
@@ -46,7 +46,7 @@ void Manager::OpenFolder(){
 void Manager::ProcessingFolder(std::vector<std::string>& MPList, bool* check){
     while(check){
     printMP3FileNames(MPList);
-     std::cout<< "1.Play a song - Input song name" << std::endl 
+     std::cout<< "1.Play a song - Input song name" << std::endl
               << "2.Quit        - PRESS [0]"<<std::endl
               << "3.Go back     - PRESS [1]" << std::endl;
     std::string command;
@@ -59,7 +59,7 @@ void Manager::ProcessingFolder(std::vector<std::string>& MPList, bool* check){
             break;
         }
          else {
-            
+
     playMP3FileByName(command,MPList);
         }
 
@@ -67,13 +67,13 @@ void Manager::ProcessingFolder(std::vector<std::string>& MPList, bool* check){
 };
 
 
-void Manager::playMP3FileByName( std::string& fileName, 
+void Manager::playMP3FileByName( std::string& fileName,
  std::vector<std::string>& filePaths){
-    
+
     for ( std::string& filePath : filePaths) {
         if (getFileNameFromPath(filePath) == fileName) {
             PlayClient(filePath,filePaths);
-            
+
         }
     }
     std::cerr << "File not found: " << fileName << std::endl;
@@ -106,10 +106,10 @@ void Manager::PlayClient( std::string& filePath, const std::vector<std::string>&
             player.setVolume(vol);
         } else if (command == "next") {
             player.next(pathMP3,filePaths);
-            
+
         } else if (command == "previous") {
             player.previous(pathMP3,filePaths);
-            
+
         } else if (command.find("metadata") == 0) {
            // std::string path = command.substr(9);
             player.printMetadata(pathMP3);

@@ -1,8 +1,8 @@
 #include <iostream>
-#include "../include/MediaPlayer.h"
-#include "../include/MP3.h"
-#include "../include/PlayList.h"
-#include "../include/manager.h"
+#include "MediaPlayer.h"
+#include "MP3.h"
+#include "PlayList.h"
+#include "manager.h"
 
 int main() {
 

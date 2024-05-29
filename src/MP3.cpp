@@ -1,4 +1,4 @@
-#include "../include/MP3.h"
+#include "MP3.h"
 #include <iostream>
 #include <filesystem>
 

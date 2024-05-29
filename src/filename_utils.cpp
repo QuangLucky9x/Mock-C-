@@ -1,4 +1,4 @@
-#include "../include/filename_utils.h"
+#include "filename_utils.h"
 #include <filesystem>
 #include <iostream>
 
@@ -23,7 +23,7 @@ void printMP3FileNames(const std::vector<std::string>& filePaths) {
     for (const std::string& path : filePaths) {
         std::cout << getFileNameFromPath(path) << std::endl;
     }
-    
+
 }
 
 

@@ -1,4 +1,4 @@
-#include "../include/PlayList.h"
+#include "PlayList.h"
 #include <algorithm> // for std::remove_if
 
 void PlayList::addSong(const MP3& song) {
